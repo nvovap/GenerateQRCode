@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func unwindToMain(segue:UIStoryboardSegue) {
-        guard let vc = segue.destination as? DetectionQRCodeViewController else {
+        guard let vc = segue.source as? DetectionQRCodeViewController else {
             return
         }
         
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     
     func generateQRCode(from string: String) -> UIImage? {
         
-        let data = string.data(using: String.Encoding.isoLatin1)
+        let data = string.data(using: String.Encoding.utf8)
         
         if let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")

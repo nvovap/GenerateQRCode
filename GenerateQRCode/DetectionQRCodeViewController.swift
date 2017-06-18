@@ -105,6 +105,7 @@ extension DetectionQRCodeViewController: AVCaptureMetadataOutputObjectsDelegate 
     
     func found(code: String) {
         print(code)
+        QRCodeForReturn = code
     }
 
 }
